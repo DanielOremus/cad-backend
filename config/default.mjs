@@ -2,7 +2,7 @@ import { configDotenv } from "dotenv"
 
 configDotenv()
 
-const defaultConfig = {
+const defaultConfig = Object.freeze({
   app: {
     protocol: process.env.APP_PROTOCOL,
     env: process.env.APP_ENV,
@@ -19,5 +19,5 @@ const defaultConfig = {
     refreshSecret: process.env.JWT_REFRESH_SECRET,
     accessSecret: process.env.JWT_ACCESS_SECRET,
   },
-}
-export default Object.freeze(defaultConfig)
+})
+export default defaultConfig
