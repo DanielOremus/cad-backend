@@ -1,0 +1,52 @@
+[
+  {
+    "username": "john_doe",
+    "avatar": null,
+    "email": "john.doe@example.com",
+    "emailConfirmed": true,
+    "adminConfirmed": true,
+    "password": "password123",
+    "registeredAt": "2025-01-10T12:34:56Z",
+    "updatedAt": "2025-01-10T12:34:56Z"
+  },
+  {
+    "username": "jane_smith",
+    "avatar": null,
+    "email": "jane.smith@example.com",
+    "emailConfirmed": true,
+    "adminConfirmed": false,
+    "password": "qwerty456",
+    "registeredAt": "2025-02-15T08:22:10Z",
+    "updatedAt": "2025-02-15T08:22:10Z"
+  },
+  {
+    "username": "alice_wonder",
+    "avatar": null,
+    "email": "alice.wonder@example.com",
+    "emailConfirmed": false,
+    "adminConfirmed": false,
+    "password": "alice789",
+    "registeredAt": "2025-03-05T16:45:00Z",
+    "updatedAt": "2025-03-05T16:45:00Z"
+  },
+  {
+    "username": "bob_builder",
+    "avatar": null,
+    "email": "bob.builder@example.com",
+    "emailConfirmed": true,
+    "adminConfirmed": true,
+    "password": "builder321",
+    "registeredAt": "2025-04-20T11:11:11Z",
+    "updatedAt": "2025-04-20T11:11:11Z"
+  },
+  {
+    "username": "charlie_brown",
+    "avatar": null,
+    "email": "charlie.brown@example.com",
+    "emailConfirmed": false,
+    "adminConfirmed": true,
+    "password": "brown654",
+    "registeredAt": "2025-05-01T09:00:00Z",
+    "updatedAt": "2025-05-01T09:00:00Z"
+  }
+]
