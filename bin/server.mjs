@@ -1,11 +1,24 @@
 import app from "../app.mjs"
 import http from "http"
-const port = normalizePort(process.env.PORT || "3000")
-app.set("port", port)
-const server = http.createServer(app)
-server.listen(port)
-server.on("error", onError)
-server.on("listening", onListening)
+import syncDevTables from "../utils/db/syncTables.mjs"
+import seedDb from "../seed/index.mjs"
+import defaultConfig from "../config/default.mjs"
+
+async function startServer() {
+  const port = normalizePort(defaultConfig.app.port || "3000")
+  app.set("port", port)
+
+  const server = http.createServer(app)
+
+  // await syncDevTables("force")
+
+  // await seedDb()
+
+  server.listen(port)
+  server.on("error", onError)
+  server.on("listening", onListening.bind(null, server))
+}
+
 function normalizePort(val) {
   const port = parseInt(val, 10)
   if (isNaN(port)) {
@@ -16,6 +29,7 @@ function normalizePort(val) {
   }
   return false
 }
+
 function onError(error) {
   if (error.syscall !== "listen") {
     throw error
@@ -26,17 +40,19 @@ function onError(error) {
     case "EACCES":
       console.error(bind + " requires elevated privileges")
       process.exit(1)
-      break
+
     case "EADDRINUSE":
       console.error(bind + " is already in use")
       process.exit(1)
-      break
+
     default:
       throw error
   }
 }
-function onListening() {
+function onListening(server) {
   const addr = server.address()
   const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port
-  console.log("Listening on " + bind)
+  console.log("Server is listening on " + bind)
 }
+
+startServer()

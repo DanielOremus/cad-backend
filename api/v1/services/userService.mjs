@@ -1,6 +1,14 @@
 import CRUDService from "./CRUDService.mjs"
-import User from "../models/user.mjs"
+import models from "../models/index.mjs"
 
-class userService extends CRUDService {}
+class UserService extends CRUDService {
+  async getAll() {
+    return await super.getAll({
+      attributes: {
+        exclude: ["password"],
+      },
+    })
+  }
+}
 
-export default new userService(User)
+export default new UserService(models.User)

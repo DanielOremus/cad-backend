@@ -9,6 +9,13 @@ class CRUDService {
       console.error("Error while getting data: ", error)
     }
   }
+  async getById(id, opts = {}) {
+    try {
+      return await this.model.findByPk(id, opts)
+    } catch (error) {
+      console.error("Error while getting item by id: ", error)
+    }
+  }
 }
 
 export default CRUDService

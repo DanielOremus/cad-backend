@@ -1,14 +1,14 @@
 import userService from "../services/userService.mjs"
 
-class userController {
-  static async getAll(req, res) {
+class UserController {
+  static async getAll(req, res, next) {
     try {
-      const users = userService.getAll()
+      const users = await userService.getAll()
       res.json({ success: true, data: users })
     } catch (error) {
-      res.status(500).json({ success: false, msg: error.msg })
+      next(error)
     }
   }
 }
 
-export default userController
+export default UserController
