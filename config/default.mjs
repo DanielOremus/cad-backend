@@ -15,9 +15,24 @@ const defaultConfig = Object.freeze({
     user: process.env.SQL_USER,
     password: process.env.SQL_PASSWORD,
   },
+  redis: {
+    user: process.env.REDIS_USER,
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+    password: process.env.REDIS_PASSWORD,
+    get url() {
+      return `redis://${this.user}:${this.password}@${this.host}:${this.port}`
+    },
+  },
   jwt: {
-    refreshSecret: process.env.JWT_REFRESH_SECRET,
-    accessSecret: process.env.JWT_ACCESS_SECRET,
+    refresh: {
+      secret: process.env.JWT_REFRESH_SECRET,
+      expireTime: 7 * 24 * 3600 * 1000, //7d
+    },
+    access: {
+      secret: process.env.JWT_ACCESS_SECRET,
+      expireTime: 15 * 60 * 1000, //15 minutes
+    },
   },
 })
 export default defaultConfig

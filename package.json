@@ -3,18 +3,24 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www.mjs",
-    "dev": "nodemon ./bin/www.mjs"
+    "start": "node ./bin/server.mjs",
+    "dev": "nodemon ./bin/server.mjs"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cookie-parser": "~1.4.4",
     "dotenv": "^17.2.2",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
     "http-errors": "~1.6.3",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "~1.9.1",
     "mysql2": "^3.15.0",
-    "sequelize": "^6.37.7"
+    "redis": "^5.8.2",
+    "sequelize": "^6.37.7",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
