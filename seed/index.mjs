@@ -12,6 +12,7 @@ async function uploadSeed(filename, model) {
 export default async function seedDb() {
   try {
     await uploadSeed("users", models.User)
+    await uploadSeed("units", models.Unit)
 
     console.log("Seeded DB successfully!")
   } catch (error) {

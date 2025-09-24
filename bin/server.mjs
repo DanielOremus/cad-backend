@@ -3,6 +3,9 @@ import http from "http"
 import syncDevTables from "../utils/db/syncTables.mjs"
 import seedDb from "../seed/index.mjs"
 import defaultConfig from "../config/default.mjs"
+import redisClient from "../db/redis.mjs"
+import initSocket from "../socket/index.mjs"
+import registerEventHandlers from "../events/index.mjs"
 
 async function startServer() {
   const port = normalizePort(defaultConfig.app.port || "3000")
@@ -10,9 +13,15 @@ async function startServer() {
 
   const server = http.createServer(app)
 
-  // await syncDevTables("force")
+  await syncDevTables("force")
 
-  // await seedDb()
+  await seedDb()
+
+  // await redisClient.connect()
+
+  const io = initSocket(server)
+
+  registerEventHandlers(io)
 
   server.listen(port)
   server.on("error", onError)

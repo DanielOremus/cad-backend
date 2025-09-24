@@ -1,0 +1,20 @@
+[
+  {
+    "userId": 1,
+    "callsign": "1L-25",
+    "dutyType": "police",
+    "status": "OOS"
+  },
+  {
+    "userId": 2,
+    "callsign": "Control",
+    "dutyType": "dispatch",
+    "status": "AVAIL"
+  },
+  {
+    "userId": 3,
+    "callsign": "LADDER-2",
+    "dutyType": "fire",
+    "status": "BUSY"
+  }
+]

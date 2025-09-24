@@ -11,8 +11,6 @@ const getRedisClient = async () => {
     console.log("Redis client is ready!")
   })
 
-  await client.connect()
-
   return client
 }
 
